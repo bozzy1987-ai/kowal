@@ -13,6 +13,19 @@ http://localhost:3000
 
 Sprawdzenie: `npm run build` i `npx tsc --noEmit`.
 
+## Podgląd na Vercel
+
+Projekt ma osobny build Vercel z adapterem Nitro. Przy imporcie repozytorium ustaw:
+
+- Framework Preset: **Other**
+- Root Directory: `./`
+- Build Command: `npm run build:vercel` (również zapisany w `vercel.json`)
+- Output Directory: pozostaw bez nadpisania; Nitro generuje `.vercel/output`
+- Install Command: `npm ci` albo ustawienie domyślne dla npm
+- Node.js: `22.x`
+
+Lokalna weryfikacja buildu: `npm run build:vercel`. Build na Vercel korzysta z Nitro; lokalne `npm run dev` i `npm run build` zachowują konfigurację Cloudflare.
+
 Slider: 3 sceny, automatyczna zmiana co 6,5 s, strzałki, klawiatura, gest przesuwania, pauza, zatrzymanie po uzyskaniu fokusu i przy najechaniu, respektowanie ograniczenia ruchu. Menu mobilne, nawigacja po sekcjach, telefon, e-mail i link do mapy. Bez pozornie działających formularzy.
 
 Oferta, kontakt i lokalizacja pochodzą z https://naukajazdyzawiercie.pl/ . Przed ewentualnym wdrożeniem właściciel powinien potwierdzić aktualność kategorii, danych i oferty. Nie dodano fikcyjnych opinii, cen, terminów ani statystyk. Metadane noindex/nofollow.

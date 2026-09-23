@@ -35,6 +35,15 @@ const localBindingConfig = {
 };
 
 export default defineConfig(async () => {
+  if (process.env.SITE_TARGET === 'vercel') {
+    const { nitro } = await import('nitro/vite');
+    const { default: tailwindcssVite } = await import('@tailwindcss/vite');
+
+    return {
+      plugins: [vinext(), tailwindcssVite(), nitro()],
+    };
+  }
+
   // Keep Wrangler and Miniflare state project-local. These are non-secret tool
   // settings; application environment belongs in ignored `.env*` files.
   process.env.WRANGLER_WRITE_LOGS ??= 'false';
